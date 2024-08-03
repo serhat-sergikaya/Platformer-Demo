@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 2f;
+    [SerializeField] float moveSpeed = 5f;
     Vector2 moveInput;
     Rigidbody2D playerRb;
 
@@ -19,15 +20,28 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Run();
+        FlipSprite();
     }
 
-    private void OnMove(InputValue inputValue){
+    void OnMove(InputValue inputValue)
+    {
         moveInput = inputValue.Get<Vector2>();
     }
 
-    private void Run(){
+    void Run()
+    {
 
         Vector2 playerVelocity = new Vector2(moveInput.x* moveSpeed, playerRb.velocity.y);
         playerRb.velocity = playerVelocity;
+    }
+
+    void FlipSprite()
+    {
+        bool playerHasHorizontalMovement = Mathf.Abs(playerRb.velocity.x) > Mathf.Epsilon;
+
+        if(playerHasHorizontalMovement)
+        {
+            transform.localScale = new Vector2(Mathf.Sign(playerRb.velocity.x), 1f);
+        }
     }
 }
