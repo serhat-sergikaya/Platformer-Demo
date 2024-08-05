@@ -80,7 +80,9 @@ public class PlayerMovement : MonoBehaviour
     {
 
         Vector2 playerVelocity = new Vector2(moveInput.x* moveSpeed, playerRb.velocity.y);
-        playerRb.velocity = playerVelocity;
+
+         playerRb.velocity = playerVelocity;
+    
 
 
     }
