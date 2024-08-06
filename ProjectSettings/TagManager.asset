@@ -13,8 +13,8 @@ TagManager:
   - UI
   - Ground
   - Player
-  - Background
   - 
+  - Background
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Platform
     uniqueID: 3582622121
+    locked: 0
+  - name: Interactables
+    uniqueID: 3714742037
     locked: 0
   - name: Player
     uniqueID: 3340321541
