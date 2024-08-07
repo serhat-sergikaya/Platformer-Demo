@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Ground
   - Player
-  - 
+  - Enemy
   - Background
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Interactables
     uniqueID: 3714742037
+    locked: 0
+  - name: Enemies
+    uniqueID: 740534031
     locked: 0
   - name: Player
     uniqueID: 3340321541
