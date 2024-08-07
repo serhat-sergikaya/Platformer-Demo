@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12761231 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5444073124917420820, guid: de8b01ab62275c14ba63e3799733dbc6, type: 3}
+  m_PrefabInstance: {fileID: 5444073125862975316}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &12761232
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12761231}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.026263237, y: -0.8075907}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.75}
+    newSize: {x: 1.5, y: 1.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7777653, y: 0.16108131}
+  m_EdgeRadius: 0
 --- !u!1 &445797873
 GameObject:
   m_ObjectHideFlags: 0
@@ -5506,6 +5537,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1000604738, guid: de8b01ab62275c14ba63e3799733dbc6, type: 3}
+      propertyPath: m_LinearDrag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 20739809355769675, guid: de8b01ab62275c14ba63e3799733dbc6, type: 3}
+      propertyPath: jumpSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 20739809355769675, guid: de8b01ab62275c14ba63e3799733dbc6, type: 3}
+      propertyPath: moveSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5444073124917420820, guid: de8b01ab62275c14ba63e3799733dbc6, type: 3}
       propertyPath: m_Name
       value: Player

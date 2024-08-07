@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     Vector2 moveInput;
     Rigidbody2D playerRb;
-    CapsuleCollider2D playerCollider;
+    CapsuleCollider2D playerBodyCollider;
+    BoxCollider2D playerFeetCollider;
 
     Animator playerAnimator;
 
@@ -22,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
-        playerCollider = GetComponent<CapsuleCollider2D>();
+        playerBodyCollider = GetComponent<CapsuleCollider2D>();
+        playerFeetCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -40,14 +42,14 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerAnim(){
 
-        if(!playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if(!playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
                 playerAnimator.SetBool(IS_JUMPING, true );
                 playerAnimator.SetBool(IS_RUNNING, false);
 
         }
 
-        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if(playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
                 playerAnimator.SetBool(IS_JUMPING, false);
 
@@ -66,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     void OnJump(InputValue inputValue)
     {
 
-        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if(playerFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             if(inputValue.isPressed)
             {
@@ -81,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector2 playerVelocity = new Vector2(moveInput.x* moveSpeed, playerRb.velocity.y);
 
-         playerRb.velocity = playerVelocity;
+         playerRb.AddForce(playerVelocity);
     
 
 
