@@ -15,8 +15,10 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D playerRb;
     CapsuleCollider2D playerBodyCollider;
     BoxCollider2D playerFeetCollider;
-
     Animator playerAnimator;
+
+
+    bool isAlive = true;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +32,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!isAlive) {return;}
         Run();
         FlipSprite();
         PlayerAnim();
+        Die();
     }
 
     void OnMove(InputValue inputValue)
@@ -96,6 +100,14 @@ public class PlayerMovement : MonoBehaviour
         if(playerHasHorizontalMovement)
         {
             transform.localScale = new Vector2(Mathf.Sign(playerRb.velocity.x), 1f);
+        }
+    }
+
+    void Die()
+    {
+        if(playerBodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            isAlive = false;
         }
     }
 }
